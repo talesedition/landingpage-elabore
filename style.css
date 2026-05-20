@@ -719,12 +719,12 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .service-card.featured {
-    border: 2px solid var(--purple-primary);
-    transform: scale(1.02);
-    z-index: 2;
+    border: 1px solid var(--border-light);
+    transform: none;
+    z-index: 1;
 }
 
-.service-card.featured:hover { transform: scale(1.02) translateY(-4px); }
+.service-card.featured:hover { transform: translateY(-4px); }
 
 .service-card::after {
     content: '';
@@ -922,7 +922,7 @@ img { max-width: 100%; height: auto; display: block; }
     align-items: start;
 }
 
-.diff-left { position: sticky; top: 120px; }
+.diff-left { position: sticky; top: 120px; text-align: center; }
 
 .diff-right {
     display: flex;
@@ -1419,6 +1419,7 @@ img { max-width: 100%; height: auto; display: block; }
     align-items: center;
 }
 
+.form-text { text-align: center; }
 .form-text h2 {
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 800;
@@ -2258,4 +2259,24 @@ select:focus-visible {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-muted);
+}
+
+/* CENTRALIZAÇÃO DE TÍTULOS - AJUSTES */
+.section-header.center .section-title,
+.section-header.center .section-eyebrow {
+    justify-content: center;
+}
+
+.diff-left .section-title,
+.diff-left .section-eyebrow,
+.diff-left .section-body {
+    text-align: center;
+}
+
+.form-text {
+    text-align: center;
+}
+
+.form-text .section-eyebrow {
+    justify-content: center;
 }
