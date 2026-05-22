@@ -1,9 +1,8 @@
 /* ========================================
-   GRUPO ELABORE - SCRIPT.JS
+   GRUPO ELABORE — SCRIPT.JS
+   Landing Page de Marketing Digital
    Interações Premium & Performance
-   ========================================
-
-*/
+   ======================================== */
 
 (function() {
     'use strict';
@@ -11,7 +10,7 @@
     // ========================================
     // CONFIGURAÇÃO GOOGLE SHEETS
     // ========================================
-    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxVPvUkVBKRreNagrk6Wur7O5_WuRY7PVaRih6hgjftuKZubxx11-d46Htsx3dZbjEANw/exec'; // Cole aqui a URL do seu Web App do Google Apps Script
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxVPvUkVBKRreNagrk6Wur7O5_WuRY7PVaRih6hgjftuKZubxx11-d46Htsx3dZbjEANw/exec';
 
     // ========================================
     // DOM Ready Handler
@@ -27,6 +26,8 @@
         initLeadFormPhoneMask();
         initClientsCarousel();
         initScrollSpy();
+        initFAQ();
+        initWhatsAppMask();
     });
 
     // ========================================
@@ -35,21 +36,17 @@
 
     function initNavbar() {
         const navbar = document.getElementById('navbar');
+        if (!navbar) return;
         let ticking = false;
 
         function updateNavbar() {
             const currentScroll = window.pageYOffset;
-
-            // Add/remove scrolled class
             if (currentScroll > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-
-            // Menu sempre visível - removido hide/show
             navbar.style.transform = 'translateY(0)';
-
             ticking = false;
         }
 
@@ -60,18 +57,16 @@
             }
         }, { passive: true });
 
-        // Initial check
         updateNavbar();
     }
 
     // ========================================
-    // SCROLL SPY - Menu Active State
+    // SCROLL SPY
     // ========================================
 
     function initScrollSpy() {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-
         if (!sections.length || !navLinks.length) return;
 
         const observerOptions = {
@@ -86,7 +81,7 @@
                     const id = entry.target.getAttribute('id');
                     navLinks.forEach(link => {
                         link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
+                        if (link.getAttribute('href') === '#' + id) {
                             link.classList.add('active');
                         }
                     });
@@ -98,12 +93,11 @@
     }
 
     // ========================================
-    // SCROLL REVEAL ANIMATION
+    // SCROLL REVEAL
     // ========================================
 
     function initScrollReveal() {
         const revealElements = document.querySelectorAll('[data-reveal]');
-
         if (!revealElements.length) return;
 
         const observerOptions = {
@@ -115,23 +109,19 @@
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Add staggered delay based on element index within parent
                     const parent = entry.target.parentElement;
                     if (parent) {
                         const siblings = Array.from(parent.querySelectorAll('[data-reveal]'));
                         const index = siblings.indexOf(entry.target);
-                        entry.target.style.transitionDelay = `${index * 0.08}s`;
+                        entry.target.style.transitionDelay = (index * 0.08) + 's';
                     }
-
                     entry.target.classList.add('revealed');
                     revealObserver.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        revealElements.forEach(el => {
-            revealObserver.observe(el);
-        });
+        revealElements.forEach(el => revealObserver.observe(el));
     }
 
     // ========================================
@@ -140,7 +130,6 @@
 
     function initCounterAnimation() {
         const counters = document.querySelectorAll('[data-count]');
-
         if (!counters.length) return;
 
         const counterObserver = new IntersectionObserver((entries) => {
@@ -154,26 +143,20 @@
             });
         }, { threshold: 0.5 });
 
-        counters.forEach(counter => {
-            counterObserver.observe(counter);
-        });
+        counters.forEach(counter => counterObserver.observe(counter));
     }
 
     function animateCounter(element, target) {
-        const duration = 2000; // 2 seconds
+        const duration = 2000;
         const startTime = performance.now();
         const startValue = 0;
 
         function updateCounter(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-
-            // Easing: easeOutQuart
             const eased = 1 - Math.pow(1 - progress, 4);
             const current = Math.floor(startValue + (target - startValue) * eased);
-
             element.textContent = current;
-
             if (progress < 1) {
                 requestAnimationFrame(updateCounter);
             } else {
@@ -191,9 +174,9 @@
     function initMobileMenu() {
         const toggle = document.getElementById('navToggle');
         const menu = document.getElementById('navMenu');
-        const links = menu.querySelectorAll('.nav-link');
-
         if (!toggle || !menu) return;
+
+        const links = menu.querySelectorAll('.nav-link');
 
         toggle.addEventListener('click', function() {
             this.classList.toggle('active');
@@ -201,7 +184,6 @@
             document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close menu when clicking a link
         links.forEach(link => {
             link.addEventListener('click', function() {
                 toggle.classList.remove('active');
@@ -210,7 +192,6 @@
             });
         });
 
-        // Close on escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && menu.classList.contains('active')) {
                 toggle.classList.remove('active');
@@ -235,7 +216,8 @@
 
                 e.preventDefault();
 
-                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const navbar = document.getElementById('navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 0;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
 
                 window.scrollTo({
@@ -247,31 +229,26 @@
     }
 
     // ========================================
-    // HERO PARALLAX & MOUSE EFFECT
+    // HERO PARALLAX
     // ========================================
 
     function initHeroParallax() {
         const hero = document.querySelector('.hero');
         const heroGrid = document.querySelector('.hero-grid');
         const heroGradient = document.querySelector('.hero-gradient');
-
         if (!hero) return;
 
-        let mouseX = 0;
-        let mouseY = 0;
-        let currentX = 0;
-        let currentY = 0;
+        let mouseX = 0, mouseY = 0;
+        let currentX = 0, currentY = 0;
         let isHeroVisible = true;
         let rafId = null;
 
-        // Check visibility
         const heroObserver = new IntersectionObserver((entries) => {
             isHeroVisible = entries[0].isIntersecting;
         }, { threshold: 0 });
 
         heroObserver.observe(hero);
 
-        // Mouse tracking (desktop only)
         if (window.matchMedia('(pointer: fine)').matches) {
             hero.addEventListener('mousemove', function(e) {
                 const rect = hero.getBoundingClientRect();
@@ -284,19 +261,14 @@
                     rafId = requestAnimationFrame(animateParallax);
                     return;
                 }
-
-                // Smooth interpolation
                 currentX += (mouseX - currentX) * 0.05;
                 currentY += (mouseY - currentY) * 0.05;
-
                 if (heroGrid) {
-                    heroGrid.style.transform = `translate(${currentX * 10}px, ${currentY * 10}px)`;
+                    heroGrid.style.transform = 'translate(' + (currentX * 10) + 'px, ' + (currentY * 10) + 'px)';
                 }
-
                 if (heroGradient) {
-                    heroGradient.style.transform = `translate(${currentX * 20}px, ${currentY * 20}px)`;
+                    heroGradient.style.transform = 'translate(' + (currentX * 20) + 'px, ' + (currentY * 20) + 'px)';
                 }
-
                 rafId = requestAnimationFrame(animateParallax);
             }
 
@@ -309,23 +281,71 @@
     // ========================================
 
     function initLeadFormPhoneMask() {
-        const leadPhone = document.getElementById('leadTelefone');
+        const leadPhone = document.getElementById('leadBarPhone');
         if (leadPhone) {
             leadPhone.addEventListener('input', function(e) {
                 let value = e.target.value.replace(/\D/g, '');
                 if (value.length > 11) value = value.slice(0, 11);
                 if (value.length >= 2) {
-                    value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+                    value = '(' + value.slice(0, 2) + ') ' + value.slice(2);
                 }
                 if (value.length >= 10) {
                     const parts = value.split(' ');
                     if (parts[1] && parts[1].length > 5) {
-                        value = `${parts[0]} ${parts[1].slice(0, 5)}-${parts[1].slice(5)}`;
+                        value = parts[0] + ' ' + parts[1].slice(0, 5) + '-' + parts[1].slice(5);
                     }
                 }
                 e.target.value = value;
             });
         }
+    }
+
+    // ========================================
+    // WHATSAPP INPUT MASK
+    // ========================================
+
+    function initWhatsAppMask() {
+        const whatsappInput = document.getElementById('whatsapp');
+        if (whatsappInput) {
+            whatsappInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.slice(0, 11);
+                if (value.length >= 2) {
+                    value = '(' + value.slice(0, 2) + ') ' + value.slice(2);
+                }
+                if (value.length >= 10) {
+                    const parts = value.split(' ');
+                    if (parts[1] && parts[1].length > 5) {
+                        value = parts[0] + ' ' + parts[1].slice(0, 5) + '-' + parts[1].slice(5);
+                    }
+                }
+                e.target.value = value;
+            });
+        }
+    }
+
+    // ========================================
+    // FAQ ACCORDION
+    // ========================================
+
+    function initFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        if (!faqItems.length) return;
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+                if (!isActive) {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
     }
 
     // ========================================
@@ -335,12 +355,11 @@
     function initClientsCarousel() {
         const carousel = document.getElementById('clientsCarousel');
         const track = document.getElementById('carouselTrack');
+        if (!carousel || !track) return;
+
         const prevBtn = carousel.querySelector('.carousel-prev');
         const nextBtn = carousel.querySelector('.carousel-next');
         const dotsContainer = document.getElementById('carouselDots');
-
-        if (!carousel || !track) return;
-
         const cards = Array.from(track.children);
         if (cards.length === 0) return;
 
@@ -353,13 +372,12 @@
         let prevTranslate = 0;
         let animationID = 0;
 
-        // Create dots
         function createDots() {
             dotsContainer.innerHTML = '';
             for (let i = 0; i < totalSlides; i++) {
                 const dot = document.createElement('button');
                 dot.classList.add('carousel-dot');
-                dot.setAttribute('aria-label', `Slide ${i + 1}`);
+                dot.setAttribute('aria-label', 'Slide ' + (i + 1));
                 if (i === 0) dot.classList.add('active');
                 dot.addEventListener('click', () => goToSlide(i));
                 dotsContainer.appendChild(dot);
@@ -378,34 +396,27 @@
             slidesPerView = getSlidesPerView();
             totalSlides = Math.ceil(cards.length / slidesPerView);
 
-            // Recreate dots if total changed
             const currentDots = dotsContainer.children.length;
             if (currentDots !== totalSlides) {
                 createDots();
             }
 
-            // Clamp index
             if (currentIndex >= totalSlides) currentIndex = totalSlides - 1;
             if (currentIndex < 0) currentIndex = 0;
 
-            const cardStyle = getComputedStyle(cards[0]);
             const cardWidth = cards[0].offsetWidth;
-            const gap = parseFloat(cardStyle.marginRight) || 20; // fallback
-            // Use exact gap from CSS (20px)
             const gapSize = 20;
             const slideWidth = cardWidth + gapSize;
             const offset = currentIndex * slideWidth * slidesPerView;
 
-            track.style.transform = `translateX(-${offset}px)`;
+            track.style.transform = 'translateX(-' + offset + 'px)';
 
-            // Update dots
             Array.from(dotsContainer.children).forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentIndex);
             });
 
-            // Update buttons
-            prevBtn.disabled = currentIndex === 0;
-            nextBtn.disabled = currentIndex >= totalSlides - 1;
+            if (prevBtn) prevBtn.disabled = currentIndex === 0;
+            if (nextBtn) nextBtn.disabled = currentIndex >= totalSlides - 1;
         }
 
         function goToSlide(index) {
@@ -427,12 +438,11 @@
             }
         }
 
-        // Touch / Drag support
         function getPositionX(event) {
             return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
         }
 
-        function touchStart(index) {
+        function touchStart() {
             return function(event) {
                 isDragging = true;
                 startPos = getPositionX(event);
@@ -447,7 +457,7 @@
                 const currentPosition = getPositionX(event);
                 const diff = currentPosition - startPos;
                 currentTranslate = prevTranslate + diff;
-                track.style.transform = `translateX(${currentTranslate}px)`;
+                track.style.transform = 'translateX(' + currentTranslate + 'px)';
             }
         }
 
@@ -473,31 +483,26 @@
             if (isDragging) requestAnimationFrame(animation);
         }
 
-        // Event listeners
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
-        // Touch events
-        track.addEventListener('touchstart', touchStart(currentIndex), { passive: true });
+        track.addEventListener('touchstart', touchStart(), { passive: true });
         track.addEventListener('touchend', touchEnd);
         track.addEventListener('touchmove', touchMove, { passive: true });
 
-        // Mouse drag events
-        track.addEventListener('mousedown', touchStart(currentIndex));
+        track.addEventListener('mousedown', touchStart());
         track.addEventListener('mouseup', touchEnd);
         track.addEventListener('mouseleave', () => {
             if (isDragging) touchEnd();
         });
         track.addEventListener('mousemove', touchMove);
 
-        // Prevent context menu on right click during drag
         track.addEventListener('contextmenu', e => {
             e.preventDefault();
             e.stopPropagation();
             return false;
         });
 
-        // Resize
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
@@ -506,11 +511,9 @@
             }, 150);
         });
 
-        // Init
         createDots();
         updateCarousel();
 
-        // Accessibility: keyboard navigation
         carousel.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') prevSlide();
             if (e.key === 'ArrowRight') nextSlide();
@@ -518,7 +521,7 @@
     }
 
     // ========================================
-    // MODAL FUNCTIONS (Global)
+    // MODAL FUNCTIONS
     // ========================================
 
     window.openModal = function() {
@@ -526,8 +529,6 @@
         if (overlay) {
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
-
-            // Focus first input
             setTimeout(() => {
                 const firstInput = overlay.querySelector('input');
                 if (firstInput) firstInput.focus();
@@ -543,7 +544,6 @@
         }
     };
 
-    // Close modal on overlay click
     document.addEventListener('click', function(e) {
         const overlay = document.getElementById('modalOverlay');
         if (overlay && e.target === overlay) {
@@ -551,7 +551,6 @@
         }
     });
 
-    // Close on escape
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeModal();
@@ -564,33 +563,17 @@
 
     window.handleFormSubmit = function(e) {
         e.preventDefault();
-
         const form = e.target;
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
 
-        // Loading state
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-            <span>Enviando...</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20">
-                    <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/>
-                </circle>
-            </svg>
-        `;
+        submitBtn.innerHTML = '<span>Enviando...</span>';
 
-        // Simulate submission (replace with actual API call)
         setTimeout(() => {
-            submitBtn.innerHTML = `
-                <span>Enviado com sucesso!</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                    <polyline points="20 6 9 17 4 12"/>
-                </svg>
-            `;
+            submitBtn.innerHTML = '<span>Enviado com sucesso!</span>';
             submitBtn.style.background = '#22c55e';
 
-            // Reset after delay
             setTimeout(() => {
                 form.reset();
                 submitBtn.disabled = false;
@@ -602,37 +585,34 @@
     };
 
     // ========================================
-    // LEAD FORM HANDLER + GOOGLE SHEETS
+    // LEAD BAR FORM HANDLER
     // ========================================
 
-    window.handleLeadFormSubmit = function(e) {
+    window.handleLeadBarSubmit = function(e) {
         e.preventDefault();
-
         const form = e.target;
         const btn = form.querySelector('.btn-lead');
         const originalText = btn.innerHTML;
 
-        // Loading state
         btn.disabled = true;
-        btn.innerHTML = `<span>Enviando...</span>`;
+        btn.innerHTML = '<span>Enviando...</span>';
 
-        // Coletar dados
         const formData = {
             nome: form.nome.value,
-            telefone: form.telefone.value,
+            telefone: form.whatsapp.value,
             email: form.email.value,
             empresa: form.empresa.value,
             faturamento: form.faturamento.value,
-            segmento: form.segmento.value
+            segmento: form.segmento.value,
+            servico: ''
         };
 
-        // Função para finalizar o envio (sucesso ou erro)
         function finishSubmit(success, message) {
             if (success) {
-                btn.innerHTML = `<span>${message || 'Enviado com sucesso!'}</span>`;
+                btn.innerHTML = '<span>' + (message || 'Enviado com sucesso!') + '</span>';
                 btn.style.background = '#22c55e';
             } else {
-                btn.innerHTML = `<span>${message || 'Erro ao enviar'}</span>`;
+                btn.innerHTML = '<span>' + (message || 'Erro ao enviar') + '</span>';
                 btn.style.background = '#dc2626';
             }
 
@@ -644,14 +624,11 @@
             }, 2500);
         }
 
-        // Se não tiver URL configurada, simula o envio
         if (!GOOGLE_SHEETS_URL) {
-            console.warn('GOOGLE_SHEETS_URL não configurada. Configure a URL do Web App no topo do script.js');
             setTimeout(() => finishSubmit(true, 'Enviado com sucesso! (modo simulação)'), 1500);
             return;
         }
 
-        // Enviar para Google Sheets - usa text/plain para evitar preflight CORS
         fetch(GOOGLE_SHEETS_URL, {
             method: 'POST',
             headers: {
@@ -668,44 +645,82 @@
             }
         })
         .catch(error => {
-            console.error('Erro ao enviar para Google Sheets:', error);
+            console.error('Erro ao enviar:', error);
             finishSubmit(false, 'Erro de conexão. Tente novamente.');
         });
     };
 
     // ========================================
-    // WHATSAPP INPUT MASK (Modal)
+    // LEAD FORM HANDLER (Main Form)
     // ========================================
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const whatsappInput = document.getElementById('whatsapp');
-        if (whatsappInput) {
-            whatsappInput.addEventListener('input', function(e) {
-                let value = e.target.value.replace(/\D/g, '');
+    window.handleLeadFormSubmit = function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('.btn-submit');
+        const originalText = btn.innerHTML;
 
-                if (value.length > 11) value = value.slice(0, 11);
+        btn.disabled = true;
+        btn.innerHTML = '<span>Enviando...</span>';
 
-                if (value.length >= 2) {
-                    value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-                }
-                if (value.length >= 10) {
-                    const parts = value.split(' ');
-                    if (parts[1] && parts[1].length > 5) {
-                        value = `${parts[0]} ${parts[1].slice(0, 5)}-${parts[1].slice(5)}`;
-                    }
-                }
+        const formData = {
+            nome: form.nome.value,
+            telefone: form.whatsapp.value,
+            email: form.email.value,
+            empresa: form.empresa.value,
+            faturamento: form.faturamento.value,
+            segmento: form.segmento.value,
+            servico: form.servico.value
+        };
 
-                e.target.value = value;
-            });
+        function finishSubmit(success, message) {
+            if (success) {
+                btn.innerHTML = '<span>' + (message || 'Enviado com sucesso!') + '</span>';
+                btn.style.background = '#22c55e';
+            } else {
+                btn.innerHTML = '<span>' + (message || 'Erro ao enviar') + '</span>';
+                btn.style.background = '#dc2626';
+            }
+
+            setTimeout(() => {
+                form.reset();
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+            }, 2500);
         }
-    });
+
+        if (!GOOGLE_SHEETS_URL) {
+            setTimeout(() => finishSubmit(true, 'Enviado com sucesso! (modo simulação)'), 1500);
+            return;
+        }
+
+        fetch(GOOGLE_SHEETS_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8',
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
+                finishSubmit(true, 'Enviado com sucesso!');
+            } else {
+                finishSubmit(false, 'Erro ao salvar. Tente novamente.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao enviar:', error);
+            finishSubmit(false, 'Erro de conexão. Tente novamente.');
+        });
+    };
 
     // ========================================
     // PREFERS REDUCED MOTION
     // ========================================
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        // Disable parallax and complex animations
         document.querySelectorAll('[data-reveal]').forEach(el => {
             el.classList.add('revealed');
         });
