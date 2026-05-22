@@ -7,19 +7,19 @@
     --purple-light: #9B6AF0;
     --purple-dark: #5A1EB8;
     --purple-glow: rgba(113, 48, 230, 0.12);
-    --bg-base: #EFEFEF;
-    --bg-card: #FFFFFF;
-    --bg-alt: #F5F5F5;
-    --bg-dark: #1B1B1B;
+    --bg-base: #000000;
+    --bg-card: #000000;
+    --bg-alt: #000000;
+    --bg-dark: #000000;
     --bg-dark-pure: #000000;
-    --text-primary: #1B1B1B;
-    --text-secondary: #4D4C4C;
-    --text-tertiary: #727272;
-    --text-muted: #989595;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E5E5E5;
+    --text-tertiary: #A0A0A0;
+    --text-muted: #707070;
     --text-inverse: #FFFFFF;
-    --border-light: #E8E8E8;
-    --border-medium: #D9D9D9;
-    --border-dark: #272727;
+    --border-light: #1a1a1a;
+    --border-medium: #111111;
+    --border-dark: #0a0a0a;
     --font-family: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --section-padding: 140px;
     --container-max: 1200px;
@@ -72,10 +72,10 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .navbar.scrolled {
-    background: rgba(239, 239, 239, 0.92);
+    background: rgba(0, 0, 0, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(113, 48, 230, 0.08);
+    border-bottom: 1px solid rgba(113, 48, 230, 0.15);
     padding: 16px 0;
 }
 
@@ -496,7 +496,7 @@ img { max-width: 100%; height: auto; display: block; }
     width: 100%;
     padding: 18px 18px;
     background: var(--bg-card);
-    border: 1px solid var(--border-light);
+    border: 1px solid #222222;
     border-radius: 8px;
     font-family: var(--font-family);
     font-size: 1rem;
@@ -505,10 +505,10 @@ img { max-width: 100%; height: auto; display: block; }
     transition: var(--transition-fast);
     appearance: none;
     -webkit-appearance: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.form-field input::placeholder { color: var(--text-muted); }
+.form-field input::placeholder { color: var(--text-muted); }                                                                                                                                                                                                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 .form-field input:focus,
 .form-field select:focus {
@@ -524,7 +524,7 @@ img { max-width: 100%; height: auto; display: block; }
     border-radius: 8px;
     padding: 0 18px;
     transition: var(--transition-fast);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .form-field--phone:focus-within {
@@ -581,19 +581,13 @@ img { max-width: 100%; height: auto; display: block; }
 .section-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 0;
     margin-bottom: 24px;
     font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--purple-primary);
-}
-
-.eyebrow-line {
-    display: block;
-    width: 32px; height: 1px;
-    background: var(--purple-primary);
 }
 
 .section-title {
@@ -1044,19 +1038,19 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .testimonial-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,245,245,0.95));
-    border: 1px solid var(--border-light);
+    background: #0a0a0a;
+    border: 1px solid #1f1f1f;
     border-radius: var(--radius-lg);
     padding: 36px;
     transition: var(--transition-base);
     position: relative;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
 .testimonial-card:hover {
-    border-color: rgba(113, 48, 230, 0.15);
+    border-color: rgba(113, 48, 230, 0.35);
     transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 20px 60px rgba(113, 48, 230, 0.12);
 }
 
 .testimonial-quote {
@@ -1089,6 +1083,22 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 0.875rem;
     font-weight: 700;
     color: var(--text-inverse);
+}
+
+
+/* AUTHOR PHOTOS */
+.author-avatar-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(113, 48, 230, 0.3);
+    transition: var(--transition-base);
+}
+
+.testimonial-card:hover .author-avatar-img {
+    border-color: var(--purple-primary);
+    transform: scale(1.05);
 }
 
 .author-info {
@@ -1482,8 +1492,8 @@ img { max-width: 100%; height: auto; display: block; }
     font-family: var(--font-family);
     font-size: 0.9375rem;
     padding: 14px 16px;
-    background: var(--bg-alt);
-    border: 1.5px solid var(--border-light);
+    background: #0a0a0a;
+    border: 1.5px solid #222222;
     border-radius: var(--radius-md);
     color: var(--text-primary);
     transition: var(--transition-fast);
@@ -1826,8 +1836,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .modal {
-    background: var(--bg-card);
-    border: 1px solid var(--border-light);
+    background: #0a0a0a;
+    border: 1px solid #1f1f1f;
     border-radius: var(--radius-xl);
     padding: 40px;
     max-width: 480px;
@@ -1837,7 +1847,7 @@ img { max-width: 100%; height: auto; display: block; }
     position: relative;
     transform: translateY(20px) scale(0.98);
     transition: var(--transition-smooth);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
 }
 
 .modal-overlay.active .modal {
@@ -2019,14 +2029,14 @@ img { max-width: 100%; height: auto; display: block; }
         width: 100%;
         max-width: 320px;
         height: 100vh;
-        background: var(--bg-card);
+        background: #000000;
         flex-direction: column;
         align-items: stretch;
         padding: 100px 32px 32px;
         gap: 4px;
         transition: var(--transition-smooth);
-        border-left: 1px solid var(--border-light);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+        border-left: 1px solid #1f1f1f;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
     }
 
     .nav-menu.active { right: 0; }
