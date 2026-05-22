@@ -725,5 +725,5 @@
             el.classList.add('revealed');
         });
     }
-
+    // teste //
 })();
