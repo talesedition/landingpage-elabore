@@ -2,6 +2,7 @@
    GRUPO ELABORE — SCRIPT.JS
    Landing Page de Marketing Digital
    Interações Premium & Performance
+   VERSÃO CORRIGIDA PARA META E GOOGLE ADS
    ======================================== */
 
 (function() {
@@ -28,6 +29,8 @@
         initScrollSpy();
         initFAQ();
         initWhatsAppMask();
+        initModalWhatsAppMask();
+        initConsentCheckboxes();
     });
 
     // ========================================
@@ -325,6 +328,51 @@
     }
 
     // ========================================
+    // MODAL WHATSAPP MASK
+    // ========================================
+
+    function initModalWhatsAppMask() {
+        const modalWhatsapp = document.getElementById('modal-whatsapp');
+        if (modalWhatsapp) {
+            modalWhatsapp.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.slice(0, 11);
+                if (value.length >= 2) {
+                    value = '(' + value.slice(0, 2) + ') ' + value.slice(2);
+                }
+                if (value.length >= 10) {
+                    const parts = value.split(' ');
+                    if (parts[1] && parts[1].length > 5) {
+                        value = parts[0] + ' ' + parts[1].slice(0, 5) + '-' + parts[1].slice(5);
+                    }
+                }
+                e.target.value = value;
+            });
+        }
+    }
+
+    // ========================================
+    // CONSENT CHECKBOXES VALIDATION
+    // ========================================
+
+    function initConsentCheckboxes() {
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            const consentCheckbox = form.querySelector('input[name="consent"]');
+            if (consentCheckbox) {
+                form.addEventListener('submit', function(e) {
+                    if (!consentCheckbox.checked) {
+                        e.preventDefault();
+                        alert('Por favor, aceite a Política de Privacidade para continuar.');
+                        consentCheckbox.focus();
+                        return false;
+                    }
+                });
+            }
+        });
+    }
+
+    // ========================================
     // FAQ ACCORDION
     // ========================================
 
@@ -338,7 +386,8 @@
                 const isActive = item.classList.contains('active');
                 faqItems.forEach(otherItem => {
                     otherItem.classList.remove('active');
-                    otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    const q = otherItem.querySelector('.faq-question');
+                    if (q) q.setAttribute('aria-expanded', 'false');
                 });
                 if (!isActive) {
                     item.classList.add('active');
@@ -544,16 +593,56 @@
         }
     };
 
-    document.addEventListener('click', function(e) {
-        const overlay = document.getElementById('modalOverlay');
-        if (overlay && e.target === overlay) {
-            closeModal();
+    window.showPrivacyModal = function(e) {
+        if (e) e.preventDefault();
+        const overlay = document.getElementById('privacyModal');
+        if (overlay) {
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
+    };
+
+    window.closePrivacyModal = function() {
+        const overlay = document.getElementById('privacyModal');
+        if (overlay) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+
+    window.showTermsModal = function(e) {
+        if (e) e.preventDefault();
+        const overlay = document.getElementById('termsModal');
+        if (overlay) {
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    window.closeTermsModal = function() {
+        const overlay = document.getElementById('termsModal');
+        if (overlay) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+
+    document.addEventListener('click', function(e) {
+        const overlays = document.querySelectorAll('.modal-overlay');
+        overlays.forEach(overlay => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     });
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            closeModal();
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                overlay.classList.remove('active');
+            });
+            document.body.style.overflow = '';
         }
     });
 
@@ -564,11 +653,33 @@
     window.handleFormSubmit = function(e) {
         e.preventDefault();
         const form = e.target;
+
+        // Validar consentimento
+        const consent = form.querySelector('input[name="consent"]');
+        if (consent && !consent.checked) {
+            alert('Por favor, aceite a Política de Privacidade para continuar.');
+            consent.focus();
+            return;
+        }
+
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
 
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span>Enviando...</span>';
+
+        // Track Meta Pixel - Lead
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead');
+        }
+
+        // Track Google Analytics - generate_lead
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'generate_lead', {
+                'event_category': 'engagement',
+                'event_label': 'modal_form'
+            });
+        }
 
         setTimeout(() => {
             submitBtn.innerHTML = '<span>Enviado com sucesso!</span>';
@@ -591,11 +702,33 @@
     window.handleLeadBarSubmit = function(e) {
         e.preventDefault();
         const form = e.target;
+
+        // Validar consentimento
+        const consent = form.querySelector('input[name="consent"]');
+        if (consent && !consent.checked) {
+            alert('Por favor, aceite a Política de Privacidade para continuar.');
+            consent.focus();
+            return;
+        }
+
         const btn = form.querySelector('.btn-lead');
         const originalText = btn.innerHTML;
 
         btn.disabled = true;
         btn.innerHTML = '<span>Enviando...</span>';
+
+        // Track Meta Pixel - Lead
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead');
+        }
+
+        // Track Google Analytics - generate_lead
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'generate_lead', {
+                'event_category': 'engagement',
+                'event_label': 'lead_bar_form'
+            });
+        }
 
         const formData = {
             nome: form.nome.value,
@@ -604,7 +737,10 @@
             empresa: form.empresa.value,
             faturamento: form.faturamento.value,
             segmento: form.segmento.value,
-            servico: ''
+            servico: '',
+            consent: true,
+            source: 'lead_bar',
+            timestamp: new Date().toISOString()
         };
 
         function finishSubmit(success, message) {
@@ -657,11 +793,33 @@
     window.handleLeadFormSubmit = function(e) {
         e.preventDefault();
         const form = e.target;
+
+        // Validar consentimento
+        const consent = form.querySelector('input[name="consent"]');
+        if (consent && !consent.checked) {
+            alert('Por favor, aceite a Política de Privacidade para continuar.');
+            consent.focus();
+            return;
+        }
+
         const btn = form.querySelector('.btn-submit');
         const originalText = btn.innerHTML;
 
         btn.disabled = true;
         btn.innerHTML = '<span>Enviando...</span>';
+
+        // Track Meta Pixel - Lead
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead');
+        }
+
+        // Track Google Analytics - generate_lead
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'generate_lead', {
+                'event_category': 'engagement',
+                'event_label': 'main_form'
+            });
+        }
 
         const formData = {
             nome: form.nome.value,
@@ -670,7 +828,10 @@
             empresa: form.empresa.value,
             faturamento: form.faturamento.value,
             segmento: form.segmento.value,
-            servico: form.servico.value
+            servico: form.servico.value,
+            consent: true,
+            source: 'main_form',
+            timestamp: new Date().toISOString()
         };
 
         function finishSubmit(success, message) {
@@ -725,5 +886,4 @@
             el.classList.add('revealed');
         });
     }
-    // teste //
 })();
