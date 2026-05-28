@@ -1,5 +1,5 @@
 /* ========================================
-   GRUPO ELABORE — SCRIPT.JS
+   GRUPO ELABORE - SCRIPT.JS
    Landing Page de Marketing Digital
    Interações Premium & Performance
    VERSÃO CORRIGIDA PARA META E GOOGLE ADS

@@ -1,5 +1,5 @@
 /* ========================================
-   GRUPO ELABORE — STYLE.CSS
+   GRUPO ELABORE - STYLE.CSS
    Landing Page de Marketing Digital
    VERSÃO CORRIGIDA PARA META E GOOGLE ADS
    ======================================== */
@@ -315,6 +315,30 @@ ul {
     gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.hero-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+    align-items: flex-start;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-align: left;
+}
+
+.hero-checklist li svg {
+    flex-shrink: 0;
 }
 
 .hero-stats {
