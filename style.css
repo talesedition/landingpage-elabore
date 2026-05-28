@@ -50,6 +50,7 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-align: center;
 }
 
 a {
@@ -61,6 +62,8 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button {
@@ -248,10 +251,14 @@ ul {
     display: grid;
     grid-template-columns: 1fr;
     gap: 64px;
+    text-align: center;
 }
 
 .hero-text {
     max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .hero-tag {
@@ -272,6 +279,7 @@ ul {
     line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
+    text-align: center;
 }
 
 .hero-line-group {
@@ -297,12 +305,16 @@ ul {
     max-width: 560px;
     margin-bottom: 32px;
     line-height: 1.7;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .hero-actions {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .hero-stats {
@@ -310,12 +322,15 @@ ul {
     align-items: center;
     gap: 40px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .stat {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    align-items: center;
+    text-align: center;
 }
 
 .stat-number {
@@ -335,6 +350,7 @@ ul {
     font-size: 0.875rem;
     color: var(--text-tertiary);
     max-width: 140px;
+    text-align: center;
 }
 
 .stat-divider {
@@ -349,6 +365,9 @@ ul {
     margin-top: 24px;
     max-width: 700px;
     line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 /* ========================================
@@ -430,11 +449,13 @@ ul {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
     margin-bottom: 12px;
+    text-align: center;
 }
 
 .lead-form-subtitle {
     color: var(--text-secondary);
     font-size: 1rem;
+    text-align: center;
 }
 
 .lead-form-wrapper {
@@ -502,6 +523,7 @@ ul {
 .form-field--consent {
     display: flex;
     align-items: flex-start;
+    justify-content: center;
 }
 
 .consent-label {
@@ -512,6 +534,7 @@ ul {
     color: var(--text-tertiary);
     cursor: pointer;
     line-height: 1.5;
+    text-align: left;
 }
 
 .consent-label input {
@@ -556,6 +579,7 @@ ul {
    ======================================== */
 .section-header {
     margin-bottom: 64px;
+    text-align: center;
 }
 
 .section-header.center {
@@ -567,6 +591,7 @@ ul {
     align-items: center;
     gap: 8px;
     margin-bottom: 16px;
+    justify-content: center;
 }
 
 .section-eyebrow span {
@@ -582,6 +607,7 @@ ul {
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.01em;
+    text-align: center;
 }
 
 .section-title .highlight {
@@ -597,6 +623,7 @@ ul {
     color: var(--text-secondary);
     line-height: 1.7;
     margin-top: 16px;
+    text-align: center;
 }
 
 /* ========================================
@@ -618,6 +645,7 @@ ul {
     border-radius: 16px;
     padding: 32px;
     transition: var(--transition-smooth);
+    text-align: center;
 }
 
 .problem-card:hover {
@@ -635,12 +663,14 @@ ul {
     font-size: 1.125rem;
     font-weight: 600;
     margin-bottom: 12px;
+    text-align: center;
 }
 
 .problem-card p {
     font-size: 0.9375rem;
     color: var(--text-secondary);
     line-height: 1.6;
+    text-align: center;
 }
 
 /* ========================================
@@ -664,6 +694,7 @@ ul {
     padding: 40px 32px;
     position: relative;
     transition: var(--transition-smooth);
+    text-align: center;
 }
 
 .service-card:hover {
@@ -691,12 +722,15 @@ ul {
     border-radius: 12px;
     color: var(--purple-primary);
     margin-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .service-card h3 {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 12px;
+    text-align: center;
 }
 
 .service-card > p {
@@ -704,12 +738,14 @@ ul {
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .service-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    align-items: center;
 }
 
 .service-list li {
@@ -718,6 +754,7 @@ ul {
     padding-left: 16px;
     position: relative;
     line-height: 1.5;
+    text-align: center;
 }
 
 .service-list li::before {
@@ -779,7 +816,7 @@ ul {
 
 .timeline-step:nth-child(odd) {
     flex-direction: row-reverse;
-    text-align: right;
+    text-align: center;
     padding-right: calc(50% + 32px);
     padding-left: 0;
 }
@@ -787,6 +824,7 @@ ul {
 .timeline-step:nth-child(even) {
     padding-left: calc(50% + 32px);
     padding-right: 0;
+    text-align: center;
 }
 
 .step-number {
@@ -812,12 +850,14 @@ ul {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .step-content p {
     font-size: 0.9375rem;
     color: var(--text-secondary);
     line-height: 1.6;
+    text-align: center;
 }
 
 /* ========================================
@@ -838,10 +878,16 @@ ul {
 .diff-left {
     position: sticky;
     top: 120px;
+    text-align: center;
 }
 
 .diff-left .section-title {
     margin-bottom: 20px;
+    text-align: center;
+}
+
+.diff-left .section-body {
+    text-align: center;
 }
 
 .diff-right {
@@ -858,6 +904,8 @@ ul {
     border: 1px solid var(--border-light);
     border-radius: 12px;
     transition: var(--transition-fast);
+    text-align: left;
+    align-items: flex-start;
 }
 
 .diff-item:hover {
@@ -880,12 +928,14 @@ ul {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 4px;
+    text-align: left;
 }
 
 .diff-text p {
     font-size: 0.875rem;
     color: var(--text-secondary);
     line-height: 1.5;
+    text-align: left;
 }
 
 /* ========================================
@@ -934,6 +984,7 @@ ul {
     margin-top: 12px;
     font-size: 0.9375rem;
     color: var(--text-secondary);
+    text-align: center;
 }
 
 .results-disclaimer {
@@ -966,6 +1017,7 @@ ul {
     padding: 40px 32px;
     position: relative;
     transition: var(--transition-smooth);
+    text-align: center;
 }
 
 .testimonial-card:hover {
@@ -977,6 +1029,8 @@ ul {
     color: var(--purple-primary);
     margin-bottom: 20px;
     opacity: 0.5;
+    display: flex;
+    justify-content: center;
 }
 
 .testimonial-text {
@@ -985,12 +1039,14 @@ ul {
     line-height: 1.7;
     margin-bottom: 24px;
     font-style: italic;
+    text-align: center;
 }
 
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 12px;
+    justify-content: center;
 }
 
 .author-avatar-img {
@@ -1004,16 +1060,19 @@ ul {
 .author-info {
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 .author-name {
     font-weight: 600;
     font-size: 0.9375rem;
+    text-align: left;
 }
 
 .author-role {
     font-size: 0.8125rem;
     color: var(--text-tertiary);
+    text-align: left;
 }
 
 .testimonials-disclaimer {
@@ -1152,10 +1211,16 @@ ul {
 .form-text {
     position: sticky;
     top: 120px;
+    text-align: center;
 }
 
 .form-text .section-title {
     margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-text .section-body {
+    text-align: center;
 }
 
 .form-benefits {
@@ -1163,6 +1228,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    align-items: center;
 }
 
 .form-benefits li {
@@ -1171,6 +1237,7 @@ ul {
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: center;
 }
 
 .form-box {
@@ -1196,6 +1263,7 @@ ul {
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--text-secondary);
+    text-align: left;
 }
 
 .form-group input,
@@ -1293,7 +1361,7 @@ ul {
     color: var(--text-primary);
     background: none;
     border: none;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -1325,6 +1393,7 @@ ul {
     font-size: 0.9375rem;
     color: var(--text-secondary);
     line-height: 1.7;
+    text-align: center;
 }
 
 /* ========================================
@@ -1361,6 +1430,7 @@ ul {
     z-index: 1;
     max-width: 720px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .cta-eyebrow {
@@ -1368,6 +1438,7 @@ ul {
     align-items: center;
     gap: 8px;
     margin-bottom: 20px;
+    justify-content: center;
 }
 
 .cta-eyebrow span {
@@ -1383,6 +1454,7 @@ ul {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .cta-title .highlight {
@@ -1397,6 +1469,7 @@ ul {
     font-size: 1.125rem;
     color: var(--text-secondary);
     margin-bottom: 32px;
+    text-align: center;
 }
 
 .cta-actions {
@@ -1411,6 +1484,7 @@ ul {
     font-size: 0.875rem;
     color: var(--text-tertiary);
     margin-bottom: 48px;
+    text-align: center;
 }
 
 .final-trust {
@@ -1424,6 +1498,8 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    align-items: center;
+    text-align: center;
 }
 
 .trust-num {
@@ -1444,6 +1520,7 @@ ul {
     padding: 80px 0 32px;
     background: var(--bg-base);
     border-top: 1px solid var(--border-light);
+    text-align: center;
 }
 
 .footer-grid {
@@ -1455,6 +1532,9 @@ ul {
 
 .footer-brand {
     max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .footer-logo {
@@ -1464,6 +1544,7 @@ ul {
     font-weight: 700;
     font-size: 1.25rem;
     margin-bottom: 16px;
+    justify-content: center;
 }
 
 .footer-logo-img {
@@ -1477,6 +1558,7 @@ ul {
     color: var(--purple-light);
     margin-bottom: 12px;
     font-weight: 500;
+    text-align: center;
 }
 
 .footer-desc {
@@ -1484,30 +1566,35 @@ ul {
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .footer-legal-info {
     font-size: 0.8125rem;
     color: var(--text-muted);
     line-height: 1.6;
+    text-align: center;
 }
 
 .footer-links h4 {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .footer-links ul {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: center;
 }
 
 .footer-links a {
     font-size: 0.9375rem;
     color: var(--text-secondary);
     transition: var(--transition-fast);
+    text-align: center;
 }
 
 .footer-links a:hover {
@@ -1518,6 +1605,7 @@ ul {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .footer-cta {
@@ -1543,6 +1631,7 @@ ul {
     font-size: 0.875rem;
     color: var(--text-tertiary);
     margin-bottom: 16px;
+    text-align: center;
 }
 
 .footer-legal-links {
@@ -1551,6 +1640,7 @@ ul {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .footer-legal-links a {
@@ -1580,6 +1670,8 @@ ul {
 .footer-bottom p {
     font-size: 0.8125rem;
     color: var(--text-muted);
+    text-align: center;
+    width: 100%;
 }
 
 /* ========================================
@@ -1618,6 +1710,7 @@ ul {
     position: relative;
     transform: scale(0.95) translateY(10px);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
 }
 
 .modal-overlay.active .modal {
@@ -1626,6 +1719,7 @@ ul {
 
 .modal--legal {
     max-width: 680px;
+    text-align: left;
 }
 
 .modal-close {
@@ -1659,11 +1753,13 @@ ul {
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .modal-header p {
     font-size: 0.9375rem;
     color: var(--text-tertiary);
+    text-align: center;
 }
 
 .modal-body.legal-body {
@@ -1694,6 +1790,10 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.modal-form .form-group label {
+    text-align: left;
 }
 
 /* ========================================
@@ -1738,7 +1838,7 @@ ul {
         gap: 48px;
     }
 
-    .hero-text { text-align: center; }
+    .hero-text { text-align: center; margin-left: auto; margin-right: auto; }
     .hero-subtitle { margin-left: auto; margin-right: auto; }
     .hero-actions { justify-content: center; }
     .hero-stats { justify-content: center; }
@@ -1759,12 +1859,12 @@ ul {
         gap: 48px;
     }
 
-    .diff-left { position: static; }
+    .diff-left { position: static; text-align: center; }
 
     .timeline-step:nth-child(odd),
     .timeline-step:nth-child(even) {
         padding: 0 0 0 80px;
-        text-align: left;
+        text-align: center;
         flex-direction: row;
     }
 
@@ -1778,6 +1878,12 @@ ul {
     .form-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .form-text {
+        position: relative;
+        top: auto;
+        text-align: center;
     }
 
     .footer-grid {
@@ -1824,6 +1930,7 @@ ul {
         border-radius: 0;
         border-bottom: 1px solid var(--border-light);
         color: var(--text-secondary);
+        text-align: center;
     }
 
     .nav-link:hover {
@@ -1851,6 +1958,7 @@ ul {
 
     .hero-title {
         font-size: clamp(2rem, 8vw, 2.75rem);
+        text-align: center;
     }
 
     .hero-line-group { display: contents; }
@@ -1922,11 +2030,29 @@ ul {
     }
 
     .final-trust { gap: 24px; }
+
+    /* FIX: Remove sticky positioning on mobile to prevent form overlap */
+    .form-text {
+        position: relative;
+        top: auto;
+        text-align: center;
+    }
+
+    .diff-left {
+        position: relative;
+        top: auto;
+        text-align: center;
+    }
+
+    .timeline-step:nth-child(odd),
+    .timeline-step:nth-child(even) {
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
-    .hero-title { font-size: 2rem; }
-    .section-title { font-size: 1.5rem; }
+    .hero-title { font-size: 2rem; text-align: center; }
+    .section-title { font-size: 1.5rem; text-align: center; }
 
     .hero-actions {
         flex-direction: column;
@@ -1948,6 +2074,7 @@ ul {
     .faq-question {
         padding: 18px 20px;
         font-size: 0.95rem;
+        text-align: center;
     }
 
     .faq-item.active .faq-answer {
@@ -1974,6 +2101,18 @@ ul {
 
     .consent-label {
         font-size: 0.75rem;
+    }
+
+    .form-text {
+        position: relative;
+        top: auto;
+        text-align: center;
+    }
+
+    .diff-left {
+        position: relative;
+        top: auto;
+        text-align: center;
     }
 }
 
@@ -2086,6 +2225,7 @@ select:focus-visible {
     cursor: pointer;
     line-height: 1.5;
     width: 100%;
+    text-align: left;
 }
 
 .consent-label input[type="checkbox"] {
@@ -2110,4 +2250,5 @@ select:focus-visible {
 
 .form-field--consent {
     align-items: flex-start;
+    justify-content: center;
 }
