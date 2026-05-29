@@ -41,6 +41,8 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 body {
@@ -53,6 +55,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     max-width: 100vw;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 a {
@@ -275,6 +280,9 @@ ul {
     font-weight: 600;
     border-radius: 100px;
     margin-bottom: 24px;
+    max-width: 90%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .hero-title {
@@ -321,6 +329,8 @@ ul {
     gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
+    padding: 0 8px;
 }
 
 .hero-checklist {
@@ -328,19 +338,24 @@ ul {
     flex-direction: column;
     gap: 12px;
     margin-bottom: 32px;
-    align-items: flex-start;
+    align-items: center;
     max-width: 560px;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    padding: 0 8px;
 }
 
 .hero-checklist li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
     font-size: 1rem;
     color: var(--text-secondary);
     text-align: left;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .hero-checklist li svg {
@@ -2511,4 +2526,46 @@ img, svg, video, canvas {
 
 * {
     max-width: 100vw;
+}
+
+
+/* ========================================
+   MOBILE TEXT OVERFLOW FIX
+   ======================================== */
+h1, h2, h3, h4, h5, h6, p, span, li, a, label, button {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.hero-text {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0 12px;
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0 8px;
+    }
+    .hero-title {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .hero-checklist li {
+        font-size: 0.9375rem;
+    }
+    .btn-large {
+        font-size: 0.9375rem;
+        padding: 14px 20px;
+    }
 }
