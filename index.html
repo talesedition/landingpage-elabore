@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elabore | Estrutura de Marketing Digital para Reduzir CAC e Escalar Faturamento</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="description" content="Estrutura de marketing digital focada em reduzir CAC, aumentar leads e escalar faturamento com estratégia, dados e criativos de conversão.">
 
     <!-- Favicon -->
@@ -102,8 +103,15 @@
     <link rel="stylesheet" href="style.css">
     <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
+    <!-- Force HTTPS -->
+    <script>
+        if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash;
+        }
+    </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
