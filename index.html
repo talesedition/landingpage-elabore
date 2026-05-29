@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Force HTTPS Redirect -->
-    <script>
-        if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
-            location.replace('https://' + location.hostname + location.pathname + location.search + location.hash);
-        }
-    </script>
-    <!-- Content Security Policy - Force HTTPS -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https:; frame-src https://www.googletagmanager.com;">
-
     <meta charset="UTF-8">
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elabore | Estrutura de Marketing Digital para Reduzir CAC e Escalar Faturamento</title>
     <meta name="description" content="Estrutura de marketing digital focada em reduzir CAC, aumentar leads e escalar faturamento com estratégia, dados e criativos de conversão.">
@@ -111,7 +100,7 @@
     <!-- End Meta Pixel Code -->
 
     <link rel="stylesheet" href="style.css">
-    <base href="https://www.elabore.digital/" target="_blank">
+    <base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -230,8 +219,8 @@
                         </select>
                     </div>
                     <div class="form-field">
-                        <select name="segmento" required>
-                            <option value="" disabled selected>Qual o seu segmento?</option>
+                        <select name="segmento">
+                            <option value="">Qual o seu segmento? (opcional)</option>
                             <option value="servico">Serviço</option>
                             <option value="varejo">Varejo</option>
                             <option value="industria">Indústria</option>
@@ -266,8 +255,7 @@
     <section class="about problem-section" id="problema">
         <div class="container">
             <div class="section-header center" data-reveal>
-                <div class="section-eyebrow"><span>O problema</span>
-                </div>
+                <div class="section-eyebrow"><span>O problema</span></div>
                 <h2 class="section-title">
                     Você investe em marketing, mas o <span class="highlight">crescimento não vem</span>?
                 </h2>
@@ -303,16 +291,14 @@
                     <h3>Atendimento sem filtro e sem escala</h3>
                     <p>Você gasta horas do dia atendendo e qualificando mensagens no WhatsApp sem nenhum filtro. Sem automação inteligente, seu time perde tempo com leads frios enquanto oportunidades quentes esperam.</p>
                 </div>
-
-                        <div class="section-cta" data-reveal>
+            </div>
+            <div class="section-cta" data-reveal>
                 <a href="#formulario" class="btn btn-primary btn-large">
                     <span>Quero Resolver Meus Gargalos</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <p class="section-cta-note">Diagnóstico gratuito. Descubra onde está perdendo dinheiro.</p>
             </div>
-
-            
         </div>
     </section>
 
@@ -320,8 +306,7 @@
     <section class="services" id="servicos">
         <div class="container">
             <div class="section-header center" data-reveal>
-                <div class="section-eyebrow"><span>O que está incluso</span>
-                </div>
+                <div class="section-eyebrow"><span>O que está incluso</span></div>
                 <h2 class="section-title">
                     Tudo que sua empresa precisa<br><span class="highlight">em uma só estrutura</span>
                 </h2>
@@ -419,16 +404,13 @@
                 </div>
             </div>
             <p class="services-disclaimer" data-reveal>Tráfego, design, social media e agentes de IA funcionam de forma integrada no Growth Completo, porque um pilar sem o outro não gera resultado sustentável.</p>
-        
-                        <div class="section-cta" data-reveal>
+            <div class="section-cta" data-reveal>
                 <a href="#formulario" class="btn btn-primary btn-large">
                     <span>Quero a Estrutura Completa</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <p class="section-cta-note">Growth Completo: tráfego, design, social e IA integrados.</p>
             </div>
-
-            
         </div>
     </section>
 
@@ -436,8 +418,7 @@
     <section class="methodology" id="como-funciona">
         <div class="container">
             <div class="section-header center" data-reveal>
-                <div class="section-eyebrow"><span>Como trabalhamos</span>
-                </div>
+                <div class="section-eyebrow"><span>Como trabalhamos</span></div>
                 <h2 class="section-title">
                     De diagnóstico a <span class="highlight">resultado em 4 passos</span>
                 </h2>
@@ -475,15 +456,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-                        <div class="section-cta" data-reveal>
+            <div class="section-cta" data-reveal>
                 <a href="#formulario" class="btn btn-primary btn-large">
                     <span>Quero Começar em 4 Passos</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <p class="section-cta-note">Briefing estratégico gratuito. Sem compromisso.</p>
             </div>
+        </div>
     </section>
 
     <!-- DIFERENCIAIS -->
@@ -491,8 +471,7 @@
         <div class="container">
             <div class="diff-grid">
                 <div class="diff-left" data-reveal>
-                    <div class="section-eyebrow"><span>Por que a Elabore</span>
-                    </div>
+                    <div class="section-eyebrow"><span>Por que a Elabore</span></div>
                     <h2 class="section-title">
                         Não entregamos posts.<br>Entregamos <span class="highlight">estratégia</span>.
                     </h2>
@@ -557,23 +536,21 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-                        <div class="section-cta" data-reveal>
+            <div class="section-cta" data-reveal>
                 <a href="#formulario" class="btn btn-primary btn-large">
                     <span>Quero uma Estratégia que Funcione</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <p class="section-cta-note">Não entregamos posts. Entregamos resultado de negócio.</p>
             </div>
+        </div>
     </section>
 
     <!-- RESULTADOS -->
     <section class="results" id="resultados">
         <div class="container">
             <div class="section-header center" data-reveal>
-                <div class="section-eyebrow"><span>Resultados reais</span>
-                </div>
+                <div class="section-eyebrow"><span>Resultados reais</span></div>
                 <h2 class="section-title">
                     Números que <span class="highlight">não mentem</span>
                 </h2>
@@ -597,23 +574,21 @@
                 </div>
             </div>
             <p class="results-disclaimer" data-reveal>*Médias históricas baseadas em clientes ativos entre 2024 e 2026. Resultados individuais podem variar conforme segmento, investimento, maturidade digital e outros fatores de mercado. A Elabore não garante resultados idênticos para todos os clientes.</p>
-        </div>
-
-                        <div class="section-cta" data-reveal>
+            <div class="section-cta" data-reveal>
                 <a href="#formulario" class="btn btn-primary btn-large">
                     <span>Quero Alcançar Esses Números</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <p class="section-cta-note">Média de 32% de redução de CAC em 90 dias.</p>
             </div>
+        </div>
     </section>
 
     <!-- DEPOIMENTOS -->
     <section class="testimonials" id="depoimentos">
         <div class="container">
             <div class="section-header center" data-reveal>
-                <div class="section-eyebrow"><span>O que dizem nossos clientes</span>
-                </div>
+                <div class="section-eyebrow"><span>O que dizem nossos clientes</span></div>
                 <h2 class="section-title">
                     Provas de que <span class="highlight">elaboramos resultados</span>
                 </h2>
@@ -660,23 +635,21 @@
                 </div>
             </div>
             <p class="testimonials-disclaimer" data-reveal>*Depoimentos de clientes reais. Resultados individuais variam conforme segmento, investimento e maturidade digital. Não garantimos resultados idênticos.</p>
-        </div>
-
-                        <div class="section-cta" data-reveal>
+            <div class="section-cta" data-reveal>
                 <a href="#formulario" class="btn btn-primary btn-large">
                     <span>Quero Ser o Próximo Caso de Sucesso</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <p class="section-cta-note">Junte-se a mais de 150 empresas que já cresceram.</p>
             </div>
+        </div>
     </section>
 
     <!-- CLIENTES -->
     <section class="clients" id="clientes">
         <div class="container">
             <div class="section-header center" data-reveal>
-                <div class="section-eyebrow"><span>Quem confia na gente</span>
-                </div>
+                <div class="section-eyebrow"><span>Quem confia na gente</span></div>
                 <h2 class="section-title">
                     Algumas empresas que <span class="highlight">crescem com a gente</span>
                 </h2>
@@ -705,15 +678,14 @@
                 </button>
                 <div class="carousel-dots" id="carouselDots"></div>
             </div>
-        </div>
-
-                        <div class="section-cta" data-reveal>
+            <div class="section-cta" data-reveal>
                 <a href="#formulario" class="btn btn-primary btn-large">
                     <span>Quero Fazer Parte Desses Resultados</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <p class="section-cta-note">Sua empresa pode ser a próxima história de sucesso.</p>
             </div>
+        </div>
     </section>
 
     <!-- FORMULÁRIO PRINCIPAL -->
@@ -721,8 +693,7 @@
         <div class="container">
             <div class="form-grid">
                 <div class="form-text" data-reveal>
-                    <div class="section-eyebrow"><span>Pronto para crescer?</span>
-                    </div>
+                    <div class="section-eyebrow"><span>Pronto para crescer?</span></div>
                     <h2 class="section-title">
                         Solicite sua <span class="highlight">análise gratuita</span>
                     </h2>
@@ -766,8 +737,8 @@
                         </div>
                         <div class="form-group">
                             <label for="segmento">Qual o seu segmento?</label>
-                            <select id="segmento" name="segmento" required>
-                                <option value="" disabled selected>Selecione</option>
+                            <select id="segmento" name="segmento">
+                                <option value="">Selecione (opcional)</option>
                                 <option value="servico">Serviço</option>
                                 <option value="varejo">Varejo</option>
                                 <option value="industria">Indústria</option>
@@ -816,8 +787,7 @@
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header center" data-reveal>
-                <div class="section-eyebrow"><span>Dúvidas frequentes</span>
-                </div>
+                <div class="section-eyebrow"><span>Dúvidas frequentes</span></div>
                 <h2 class="section-title">
                     Tire suas <span class="highlight">dúvidas</span>
                 </h2>
@@ -878,15 +848,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-                        <div class="section-cta" data-reveal>
+            <div class="section-cta" data-reveal>
                 <a href="#formulario" class="btn btn-primary btn-large">
                     <span>Ainda Tem Dúvidas? Fale com Especialista</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <p class="section-cta-note">Resposta em até 4h. Atendimento humano.</p>
             </div>
+        </div>
     </section>
 
     <!-- CTA FINAL -->
@@ -896,8 +865,7 @@
         </div>
         <div class="container">
             <div class="cta-content" data-reveal>
-                <div class="cta-eyebrow"><span>Pronto para crescer?</span>
-                </div>
+                <div class="cta-eyebrow"><span>Pronto para crescer?</span></div>
                 <h2 class="cta-title">
                     Seu concorrente já está investindo em <span class="highlight">growth</span>.<br>E você?
                 </h2>
