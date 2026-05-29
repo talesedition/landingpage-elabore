@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Force HTTPS Redirect -->
+    <script>
+        if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            location.replace('https://' + location.hostname + location.pathname + location.search + location.hash);
+        }
+    </script>
+    <!-- Content Security Policy - Force HTTPS -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https:; frame-src https://www.googletagmanager.com;">
+
     <meta charset="UTF-8">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elabore | Estrutura de Marketing Digital para Reduzir CAC e Escalar Faturamento</title>
     <meta name="description" content="Estrutura de marketing digital focada em reduzir CAC, aumentar leads e escalar faturamento com estratégia, dados e criativos de conversão.">
@@ -100,9 +111,7 @@
     <!-- End Meta Pixel Code -->
 
     <link rel="stylesheet" href="style.css">
-    <base target="_blank">
-<base target="_blank">
-<base target="_blank">
+    <base href="https://www.elabore.digital/" target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -162,7 +171,7 @@
                     </ul>
                     <div class="hero-actions">
                         <a href="#formulario" class="btn btn-primary btn-large pulse" rel="noopener noreferrer">
-                            <span>Quero Aumentar Meu Faturamento</span>
+                            <span>Quero meu Diagnóstico Gratuito</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                         <a href="#como-funciona" class="btn btn-ghost btn-large">Ver Como Funciona</a>
@@ -221,8 +230,8 @@
                         </select>
                     </div>
                     <div class="form-field">
-                        <select name="segmento">
-                            <option value="">Qual o seu segmento? (opcional)</option>
+                        <select name="segmento" required>
+                            <option value="" disabled selected>Qual o seu segmento?</option>
                             <option value="servico">Serviço</option>
                             <option value="varejo">Varejo</option>
                             <option value="industria">Indústria</option>
@@ -294,7 +303,16 @@
                     <h3>Atendimento sem filtro e sem escala</h3>
                     <p>Você gasta horas do dia atendendo e qualificando mensagens no WhatsApp sem nenhum filtro. Sem automação inteligente, seu time perde tempo com leads frios enquanto oportunidades quentes esperam.</p>
                 </div>
+
+                        <div class="section-cta" data-reveal>
+                <a href="#formulario" class="btn btn-primary btn-large">
+                    <span>Quero Resolver Meus Gargalos</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="section-cta-note">Diagnóstico gratuito. Descubra onde está perdendo dinheiro.</p>
             </div>
+
+            
         </div>
     </section>
 
@@ -401,6 +419,16 @@
                 </div>
             </div>
             <p class="services-disclaimer" data-reveal>Tráfego, design, social media e agentes de IA funcionam de forma integrada no Growth Completo, porque um pilar sem o outro não gera resultado sustentável.</p>
+        
+                        <div class="section-cta" data-reveal>
+                <a href="#formulario" class="btn btn-primary btn-large">
+                    <span>Quero a Estrutura Completa</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="section-cta-note">Growth Completo: tráfego, design, social e IA integrados.</p>
+            </div>
+
+            
         </div>
     </section>
 
@@ -448,6 +476,14 @@
                 </div>
             </div>
         </div>
+
+                        <div class="section-cta" data-reveal>
+                <a href="#formulario" class="btn btn-primary btn-large">
+                    <span>Quero Começar em 4 Passos</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="section-cta-note">Briefing estratégico gratuito. Sem compromisso.</p>
+            </div>
     </section>
 
     <!-- DIFERENCIAIS -->
@@ -522,6 +558,14 @@
                 </div>
             </div>
         </div>
+
+                        <div class="section-cta" data-reveal>
+                <a href="#formulario" class="btn btn-primary btn-large">
+                    <span>Quero uma Estratégia que Funcione</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="section-cta-note">Não entregamos posts. Entregamos resultado de negócio.</p>
+            </div>
     </section>
 
     <!-- RESULTADOS -->
@@ -554,6 +598,14 @@
             </div>
             <p class="results-disclaimer" data-reveal>*Médias históricas baseadas em clientes ativos entre 2024 e 2026. Resultados individuais podem variar conforme segmento, investimento, maturidade digital e outros fatores de mercado. A Elabore não garante resultados idênticos para todos os clientes.</p>
         </div>
+
+                        <div class="section-cta" data-reveal>
+                <a href="#formulario" class="btn btn-primary btn-large">
+                    <span>Quero Alcançar Esses Números</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="section-cta-note">Média de 32% de redução de CAC em 90 dias.</p>
+            </div>
     </section>
 
     <!-- DEPOIMENTOS -->
@@ -609,6 +661,14 @@
             </div>
             <p class="testimonials-disclaimer" data-reveal>*Depoimentos de clientes reais. Resultados individuais variam conforme segmento, investimento e maturidade digital. Não garantimos resultados idênticos.</p>
         </div>
+
+                        <div class="section-cta" data-reveal>
+                <a href="#formulario" class="btn btn-primary btn-large">
+                    <span>Quero Ser o Próximo Caso de Sucesso</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="section-cta-note">Junte-se a mais de 150 empresas que já cresceram.</p>
+            </div>
     </section>
 
     <!-- CLIENTES -->
@@ -646,6 +706,14 @@
                 <div class="carousel-dots" id="carouselDots"></div>
             </div>
         </div>
+
+                        <div class="section-cta" data-reveal>
+                <a href="#formulario" class="btn btn-primary btn-large">
+                    <span>Quero Fazer Parte Desses Resultados</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="section-cta-note">Sua empresa pode ser a próxima história de sucesso.</p>
+            </div>
     </section>
 
     <!-- FORMULÁRIO PRINCIPAL -->
@@ -698,8 +766,8 @@
                         </div>
                         <div class="form-group">
                             <label for="segmento">Qual o seu segmento?</label>
-                            <select id="segmento" name="segmento">
-                                <option value="">Selecione (opcional)</option>
+                            <select id="segmento" name="segmento" required>
+                                <option value="" disabled selected>Selecione</option>
                                 <option value="servico">Serviço</option>
                                 <option value="varejo">Varejo</option>
                                 <option value="industria">Indústria</option>
@@ -811,6 +879,14 @@
                 </div>
             </div>
         </div>
+
+                        <div class="section-cta" data-reveal>
+                <a href="#formulario" class="btn btn-primary btn-large">
+                    <span>Ainda Tem Dúvidas? Fale com Especialista</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="section-cta-note">Resposta em até 4h. Atendimento humano.</p>
+            </div>
     </section>
 
     <!-- CTA FINAL -->
@@ -998,5 +1074,12 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/5522988730115" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Falar no WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="whatsapp-float-tooltip">Falar com Especialista</span>
+    </a>
+
 </body>
 </html>
